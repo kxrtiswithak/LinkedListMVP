@@ -2,13 +2,27 @@ package com.sparta.kurtis.linkedlists;
 
 import com.sparta.kurtis.Printer;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.ConcurrentModificationException;
+import java.util.List;
+
 // basically copied https://www.javatpoint.com/java-programs#singly-linked-list-programs
 // https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/util/LinkedList.html#set(int,E)
 // TODO: indexOf, clear, clone
 // TODO: iterate to certain index
 // TODO: getFirst, getLast
 
-
+/**
+ * Singly-linked list abstract implementation. Only permits {@code String}
+ * elements (including {@code null}).
+ *
+ * <p>All of the operations perform as could be expected for a singly-linked
+ * list.  Operations that index into the list will traverse the list from
+ * the beginning only.
+ *
+ * @author  Kurtis Hanson
+ */
 public abstract class LinkedList {
     private Node head = null;
     private Node tail = null;

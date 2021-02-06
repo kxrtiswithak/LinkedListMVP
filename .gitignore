@@ -85,3 +85,6 @@ modules.xml
 
 # Sonarlint plugin
 .idea/sonarlint
+
+# javadocs
+/javadocs/

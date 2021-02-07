@@ -41,8 +41,8 @@ public class Printer {
             printErrorMessage("List is empty");
         } else {
             do {
-                printMessage(temp.data);
-                temp = temp.next;
+                printMessage(temp.getData());
+                temp = temp.getNext();
                 if (temp == head) {
                     printMessage("");
                     currentRotation--;

@@ -14,10 +14,10 @@ public class CircularLinkedList extends LinkedList {
         if (this.getHead() == null) {
             setHead(newNode);
         } else {
-            getTail().next = newNode;
+            getTail().setNext(newNode);
         }
         setTail(newNode);
-        newNode.next = getHead();
+        newNode.setNext(getHead());
         return true;
     }
 
@@ -33,11 +33,11 @@ public class CircularLinkedList extends LinkedList {
                 Node current = getHead();
                 int count = 0;
                 while (count < index - 1) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
-                newNode.next = current.next;
-                current.next = newNode;
+                newNode.setNext(current.getNext());
+                current.setNext(newNode);
             }
     }
 
@@ -48,10 +48,10 @@ public class CircularLinkedList extends LinkedList {
             setTail(newNode);
 
         } else {
-            newNode.next = getHead();
+            newNode.setNext(getHead());
         }
         setHead(newNode);
-        getTail().next = getHead();
+        getTail().setNext(getHead());
     }
 
     @Override
@@ -60,13 +60,13 @@ public class CircularLinkedList extends LinkedList {
         if (getHead() == null) {
             Printer.printErrorMessage("List is empty");
         } else {
-            removed = getHead().data;
+            removed = getHead().getData();
             if (getHead() == getTail()) {
                 setHead(null);
                 setTail(null);
             } else {
-                setHead(getHead().next);
-                getTail().next = getHead();
+                setHead(getHead().getNext());
+                getTail().setNext(getHead());
             }
         }
         return removed;
@@ -87,11 +87,11 @@ public class CircularLinkedList extends LinkedList {
                 Node current = getHead();
                 int count = 0;
                 while (count < index - 1) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
-                removed = current.next.data;
-                current.next = current.next.next;
+                removed = current.getNext().getData();
+                current.setNext(current.getNext().getNext());
 
             }
         }
@@ -105,17 +105,17 @@ public class CircularLinkedList extends LinkedList {
             Printer.printErrorMessage("List is empty");
         } else {
             if (getHead() == getTail()) {
-                removed = getHead().data;
+                removed = getHead().getData();
                 setTail(null);
                 setHead(null);
             } else {
                 Node current = getHead();
-                while (current.next != getTail()) {
-                    current = current.next;
+                while (current.getNext() != getTail()) {
+                    current = current.getNext();
                 }
-                removed = current.next.data;
+                removed = current.getNext().getData();
                 setTail(current);
-                getTail().next = getHead();
+                getTail().setNext(getHead());
             }
         }
         return removed;
@@ -133,11 +133,11 @@ public class CircularLinkedList extends LinkedList {
                 Node current = getHead();
                 int count = 0;
                 while (count < index) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
-                previous = current.data;
-                current.data = data;
+                previous = current.getData();
+                current.setData(data);
             }
         }
         return previous;
@@ -155,10 +155,10 @@ public class CircularLinkedList extends LinkedList {
                 Node current = getHead();
                 int count = 0;
                 while (count < index) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
-                previous = current.data;
+                previous = current.getData();
             }
         }
         return previous;
@@ -173,7 +173,7 @@ public class CircularLinkedList extends LinkedList {
         } else {
             do {
                 count++;
-                current = current.next;
+                current = current.getNext();
             } while (current != getHead());
         }
 
@@ -193,11 +193,11 @@ public class CircularLinkedList extends LinkedList {
                 Node current = getHead();
                 index = 0;
                 do {
-                    if (current.data == data) {
+                    if (current.getData() == data) {
                         return index;
                     }
                     index++;
-                    current = current.next;
+                    current = current.getNext();
                 } while (current != getHead());
             }
         }

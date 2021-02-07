@@ -39,6 +39,9 @@ public class CircularExamples extends Example {
         monopolyBoard.add(1, monopolySpace2);
 
         Printer.printStringCircularLinkedList(monopolyBoard, 2);
+        monopolyBoard.set(2, "Waterloo Station");
+        Printer.printMessage(monopolyBoard.get(2));
+        Printer.printStringCircularLinkedList(monopolyBoard, 1);
         Printer.printMessage("Size: " + monopolyBoard.size());
 
         Printer.printMessage("Removed: " + monopolyBoard.removeLast());
@@ -49,16 +52,8 @@ public class CircularExamples extends Example {
         monopolyBoard.remove(monopolySpace5);
         Printer.printMessage("Removed: " + monopolyBoard.remove(3));
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
+
+        monopolyBoard.clear();
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
     }
 }

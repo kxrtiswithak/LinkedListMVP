@@ -308,7 +308,7 @@ public abstract class LinkedList {
                 }
                 return current.data;
             } else {
-                Printer.printErrorMessage("index out of bounds");
+                Printer.printErrorMessage("Index out of bounds");
                 return null;
             }
         }

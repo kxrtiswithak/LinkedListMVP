@@ -120,6 +120,49 @@ public class CircularLinkedList extends LinkedList {
     }
 
     @Override
+    public String set(int index, String data) {
+        String previous = null;
+        if (getHead() == null) {
+            Printer.printErrorMessage("List is empty");
+        } else {
+            if (size() < index) {
+                Printer.printErrorMessage("Index out of bounds");
+            } else {
+                Node current = getHead();
+                int count = 0;
+                while (count < index) {
+                    current = current.next;
+                    count++;
+                }
+                previous = current.data;
+                current.data = data;
+            }
+        }
+        return previous;
+    }
+
+    @Override
+    public String get(int index) {
+        String previous = null;
+        if (getHead() == null) {
+            Printer.printErrorMessage("List is empty");
+        } else {
+            if (size() < index) {
+                Printer.printErrorMessage("Index out of bounds");
+            } else {
+                Node current = getHead();
+                int count = 0;
+                while (count < index) {
+                    current = current.next;
+                    count++;
+                }
+                previous = current.data;
+            }
+        }
+        return previous;
+    }
+
+    @Override
     public int size() {
         int count = 0;
         Node current = getHead();
@@ -133,5 +176,33 @@ public class CircularLinkedList extends LinkedList {
         }
 
         return count;
+    }
+
+//    public int indexOf(String data) {
+//        int index = 0;
+//        if (getHead() == null) {
+//            Printer.printErrorMessage("List is empty");
+//        } else {
+//            if (size() < index) {
+//                Printer.printErrorMessage("Index out of bounds");
+//            } else {
+//                Node current = getHead();
+//                do {
+//
+//                } while (true);
+//            }
+//        }
+//        return index;
+//    }
+
+    public void clear() {
+        int fullSize = size();
+        if (getHead() == null) {
+            Printer.printErrorMessage("List is empty");
+        } else {
+            for(int count = 0; count < fullSize; count++) {
+                remove();
+            }
+        }
     }
 }

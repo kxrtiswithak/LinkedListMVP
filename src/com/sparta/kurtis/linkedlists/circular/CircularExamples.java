@@ -25,8 +25,8 @@ public class CircularExamples extends Example {
         String monopolySpace12 = "Liverpool Street Station";
         String monopolySpace13 = "Mayfair";
 
-        monopolyBoard.add(monopolySpace1);
-        monopolyBoard.add(monopolySpace2);
+        monopolyBoard.addFirst(monopolySpace2);
+        monopolyBoard.addFirst(monopolySpace1);
         monopolyBoard.add(monopolySpace3);
         monopolyBoard.add(monopolySpace4);
         monopolyBoard.add(monopolySpace5);
@@ -38,11 +38,14 @@ public class CircularExamples extends Example {
         monopolyBoard.add(monopolySpace11);
         monopolyBoard.add(monopolySpace12);
         monopolyBoard.add(monopolySpace13);
+//        monopolyBoard.add(2, monopolySpace2);
 
         Printer.printStringCircularLinkedList(monopolyBoard, 2);
         Printer.printMessage("Size: " + monopolyBoard.size());
 
-        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.removeLast());
+        Printer.printStringCircularLinkedList(monopolyBoard, 1);
+        Printer.printMessage("Size: " + monopolyBoard.size());
         Printer.printMessage("Removed: " + monopolyBoard.remove());
         Printer.printMessage("Removed: " + monopolyBoard.remove());
         Printer.printMessage("Removed: " + monopolyBoard.remove());

@@ -8,17 +8,19 @@ public class SinglyExamples extends Example {
 
         // TODO: format examples and method calls
         SinglyLinkedList tubeStations = new SinglyLinkedList();
-        String station1 = "Uxbridge";
+        String station1 = "Euston";
 
         // A
-        Printer.printMessage("\nA) Hopping on the Eastbound Piccadilly Line...");
+        Printer.printMessage("\nA) Hopping on the Northern Line...");
         tubeStations.add(station1);
-        tubeStations.add("Hillingdon");
-        tubeStations.add("Ickenham");
-        tubeStations.add("Ruislip");
-        tubeStations.add("Ruislip Manor");
-        tubeStations.add("Eastcote");
-        tubeStations.add("Rayners Lane");
+        tubeStations.add("King's Cross");
+        tubeStations.add("Angel");
+        tubeStations.add("Old Street");
+        tubeStations.add("Moorgate");
+        tubeStations.add("Bank");
+        tubeStations.add("London Bridge");
+        tubeStations.add("Borough");
+        tubeStations.add("Elephant Castle");
         Printer.printMessage(tubeStations.toString());
 
         // B
@@ -37,19 +39,19 @@ public class SinglyExamples extends Example {
         Printer.printMessage(tubeStations.toString());
 
         // E
-        String station2 = "Roxborn Lido";
+        String station2 = "Warren Street";
         Printer.printMessage("\nE) New station '" + station2 + "' being added to the line:");
         tubeStations.add(1, station2);
         Printer.printMessage(tubeStations.toString());
 
         // F
-        String station3 = "Ruislip";
+        String station3 = "Goodge Street";
         Printer.printMessage("\nF) '" + station3 + "' closing down due to vandalism and riots:");
         Printer.printMessage(tubeStations.toString());
 
         // G
         int stationIndex = 2;
-        String newStationName = "bridge of uckers";
+        String newStationName = "Tottenham Court Road";
         Printer.printMessage("\nG) Bojo passed a law to change one of the stations name from '" + tubeStations.get(stationIndex) + "' to '" + newStationName + "':");
         tubeStations.set(stationIndex, newStationName);
         Printer.printMessage(tubeStations.toString());

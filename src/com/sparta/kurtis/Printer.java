@@ -1,5 +1,8 @@
 package com.sparta.kurtis;
 
+import com.sparta.kurtis.linkedlists.Node;
+import com.sparta.kurtis.linkedlists.circular.CircularLinkedList;
+
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -30,6 +33,20 @@ public class Printer {
         System.out.printf("%n================%n");
     }
 
+    public static void printStringCircularLinkedList(CircularLinkedList list, int rotations) {
+        System.out.printf("%n================%n%n");
+        Node head = list.getHead(), temp = head;
+        int currentRotation = rotations;
+        do {
+            printMessage(temp.data);
+            temp = temp.next;
+            if (temp == head){
+                printMessage("");
+                currentRotation--;
+            }
+        } while(currentRotation > 0);
+        System.out.printf("%n================%n");
+    }
 
     public static void printErrorMessage(String message) {
         System.err.println(message);

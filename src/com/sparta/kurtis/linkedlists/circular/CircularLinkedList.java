@@ -35,11 +35,6 @@ public class CircularLinkedList extends LinkedList {
     }
 
     @Override
-    public void addLast(String data) {
-        this.add(data);
-    }
-
-    @Override
     public String remove() {
         String removed = null;
         if (getHead() == null) {
@@ -58,8 +53,29 @@ public class CircularLinkedList extends LinkedList {
     }
 
     @Override
-    public String removeFirst() {
-        return remove();
+    public String remove(int index) {
+        String removed = null;
+        if (getHead() == null) {
+            Printer.printErrorMessage("List is empty");
+        } else if (size() < index) {
+            Printer.printErrorMessage("List is smaller than the index passed");
+        } else {
+            if (getHead() == getTail()) {
+                setHead(null);
+                setTail(null);
+            } else {
+                Node current = getHead();
+                int count = 0;
+                while (count < index - 1) {
+                    current = current.next;
+                    count++;
+                }
+                removed = current.next.data;
+                current.next = current.next.next;
+
+            }
+        }
+        return removed;
     }
 
     @Override

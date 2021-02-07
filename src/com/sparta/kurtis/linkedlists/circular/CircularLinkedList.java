@@ -1,9 +1,9 @@
 package com.sparta.kurtis.linkedlists.circular;
 
+import com.sparta.kurtis.linkedlists.LinkedList;
 import com.sparta.kurtis.linkedlists.Node;
-import com.sparta.kurtis.linkedlists.singly.SinglyLinkedList;
 
-public class CircularLinkedList extends SinglyLinkedList {
+public class CircularLinkedList extends LinkedList {
 
     //TODO: override necessary methods (add, remove, size maybe)
 
@@ -18,5 +18,24 @@ public class CircularLinkedList extends SinglyLinkedList {
         setTail(newNode);
         newNode.next = getHead();
         return true;
+    }
+
+    @Override
+    public String remove() {
+        String removed;
+        if (getHead() == getTail()) {
+            removed = getHead().data;
+            setTail(null);
+            setHead(null);
+        } else {
+            Node current = getHead();
+            while (current.next != getTail()) {
+                current = current.next;
+            }
+            removed = current.next.data;
+            setTail(current);
+            getTail().next = getHead();
+        }
+        return removed;
     }
 }

@@ -8,7 +8,7 @@ public class CircularExamples extends Example {
     //TODO: come up with some examples, consult powerpoint
     @Override
     public void examples() {
-        CircularLinkedList monopoly = new CircularLinkedList();
+        CircularLinkedList monopolyBoard = new CircularLinkedList();
         String monopolySpace1 = "Go";
         String monopolySpace2 = "Old Kent Road";
         String monopolySpace3 = "King's Cross Station";
@@ -23,20 +23,35 @@ public class CircularExamples extends Example {
         String monopolySpace12 = "Liverpool Street Station";
         String monopolySpace13 = "Mayfair";
 
-        monopoly.add(monopolySpace1);
-        monopoly.add(monopolySpace2);
-        monopoly.add(monopolySpace3);
-        monopoly.add(monopolySpace4);
-        monopoly.add(monopolySpace5);
-        monopoly.add(monopolySpace6);
-        monopoly.add(monopolySpace7);
-        monopoly.add(monopolySpace8);
-        monopoly.add(monopolySpace9);
-        monopoly.add(monopolySpace10);
-        monopoly.add(monopolySpace11);
-        monopoly.add(monopolySpace12);
-        monopoly.add(monopolySpace13);
+        monopolyBoard.add(monopolySpace1);
+        monopolyBoard.add(monopolySpace2);
+        monopolyBoard.add(monopolySpace3);
+        monopolyBoard.add(monopolySpace4);
+        monopolyBoard.add(monopolySpace5);
+        monopolyBoard.add(monopolySpace6);
+        monopolyBoard.add(monopolySpace7);
+        monopolyBoard.add(monopolySpace8);
+        monopolyBoard.add(monopolySpace9);
+        monopolyBoard.add(monopolySpace10);
+        monopolyBoard.add(monopolySpace11);
+        monopolyBoard.add(monopolySpace12);
+        monopolyBoard.add(monopolySpace13);
 
-        Printer.printStringCircularLinkedList(monopoly, 2);
+        Printer.printStringCircularLinkedList(monopolyBoard, 2);
+
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
+//        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printStringCircularLinkedList(monopolyBoard, 1);
     }
 }

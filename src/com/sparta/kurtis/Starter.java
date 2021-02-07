@@ -6,7 +6,7 @@ import com.sparta.kurtis.linkedlists.singly.SinglyExamples;
 
 public class Starter {
     public static void start() {
-//        new SinglyExamples().examples();
+//       new SinglyExamples().examples();
 //        new DoublyLinkedList().examples();
         new CircularExamples().examples();
     }

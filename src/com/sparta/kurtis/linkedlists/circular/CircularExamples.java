@@ -5,7 +5,6 @@ import com.sparta.kurtis.linkedlists.Example;
 
 public class CircularExamples extends Example {
 
-    //TODO: come up with some examples, consult powerpoint
     @Override
     public void examples() {
         CircularLinkedList monopolyBoard = new CircularLinkedList();
@@ -24,38 +23,34 @@ public class CircularExamples extends Example {
         String monopolySpace12 = "Liverpool Street Station";
         String monopolySpace13 = "Mayfair";
 
+        //A
         monopolyBoard.add(monopolySpace3);
         monopolyBoard.addFirst(monopolySpace1);
         monopolyBoard.add(monopolySpace4);
         monopolyBoard.add(monopolySpace5);
-        monopolyBoard.add(monopolySpace6);
-        monopolyBoard.add(monopolySpace7);
-        monopolyBoard.add(monopolySpace8);
-        monopolyBoard.add(monopolySpace9);
-        monopolyBoard.add(monopolySpace10);
-        monopolyBoard.add(monopolySpace11);
-        monopolyBoard.add(monopolySpace12);
-        monopolyBoard.add(monopolySpace13);
         monopolyBoard.add(1, monopolySpace2);
-
         Printer.printStringCircularLinkedList(monopolyBoard, 2);
+
+        //B
         monopolyBoard.set(2, "Waterloo Station");
-        Printer.printMessage(monopolyBoard.get(2));
+        monopolyBoard.get(2);
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
-        Printer.printMessage("Size: " + monopolyBoard.size());
 
-        Printer.printMessage("Removed: " + monopolyBoard.removeLast());
-
+        //C
+        monopolyBoard.removeLast();
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
-        Printer.printMessage("Size: " + monopolyBoard.size());
 
+        //D
         monopolyBoard.remove(monopolySpace5);
-        Printer.printMessage("Removed: " + monopolyBoard.remove(-1));
+        monopolyBoard.remove(-1);
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
 
-        Printer.printMessage("Index: " + monopolyBoard.indexOf(monopolySpace1));
-        Printer.printMessage("Index: " + monopolyBoard.indexOf(monopolySpace12));
-        Printer.printMessage("Index: " + monopolyBoard.indexOf("hello"));
+        //E
+        monopolyBoard.indexOf(monopolySpace1);
+        monopolyBoard.indexOf(monopolySpace12);
+        monopolyBoard.indexOf("hello");
+
+        //F
         monopolyBoard.clear();
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
     }

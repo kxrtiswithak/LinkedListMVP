@@ -6,8 +6,6 @@ import com.sparta.kurtis.linkedlists.Node;
 
 public class CircularLinkedList extends LinkedList {
 
-    //TODO: override necessary methods (add, remove, size maybe)
-
     @Override
     public boolean add(String data) {
         Node newNode = new Node(data);

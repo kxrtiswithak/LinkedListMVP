@@ -50,9 +50,12 @@ public class CircularExamples extends Example {
         Printer.printMessage("Size: " + monopolyBoard.size());
 
         monopolyBoard.remove(monopolySpace5);
-        Printer.printMessage("Removed: " + monopolyBoard.remove(3));
+        Printer.printMessage("Removed: " + monopolyBoard.remove(-1));
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
 
+        Printer.printMessage("Index: " + monopolyBoard.indexOf(monopolySpace1));
+        Printer.printMessage("Index: " + monopolyBoard.indexOf(monopolySpace12));
+        Printer.printMessage("Index: " + monopolyBoard.indexOf("hello"));
         monopolyBoard.clear();
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
     }

@@ -27,6 +27,8 @@ public class CircularLinkedList extends LinkedList {
             if (getHead() == null) {
                 setHead(newNode);
                 setTail(newNode);
+            } else if (size() < index || index < 0) {
+                Printer.printErrorMessage("Index out of bounds");
             } else {
                 Node current = getHead();
                 int count = 0;
@@ -75,8 +77,8 @@ public class CircularLinkedList extends LinkedList {
         String removed = null;
         if (getHead() == null) {
             Printer.printErrorMessage("List is empty");
-        } else if (size() < index) {
-            Printer.printErrorMessage("List is smaller than the index passed");
+        } else if (size() < index || index < 0) {
+            Printer.printErrorMessage("Index out of bounds");
         } else {
             if (getHead() == getTail()) {
                 setHead(null);
@@ -125,7 +127,7 @@ public class CircularLinkedList extends LinkedList {
         if (getHead() == null) {
             Printer.printErrorMessage("List is empty");
         } else {
-            if (size() < index) {
+            if (size() < index || index < 0) {
                 Printer.printErrorMessage("Index out of bounds");
             } else {
                 Node current = getHead();
@@ -147,7 +149,7 @@ public class CircularLinkedList extends LinkedList {
         if (getHead() == null) {
             Printer.printErrorMessage("List is empty");
         } else {
-            if (size() < index) {
+            if (size() < index || index < 0) {
                 Printer.printErrorMessage("Index out of bounds");
             } else {
                 Node current = getHead();
@@ -178,22 +180,30 @@ public class CircularLinkedList extends LinkedList {
         return count;
     }
 
-//    public int indexOf(String data) {
-//        int index = 0;
-//        if (getHead() == null) {
-//            Printer.printErrorMessage("List is empty");
-//        } else {
-//            if (size() < index) {
-//                Printer.printErrorMessage("Index out of bounds");
-//            } else {
-//                Node current = getHead();
-//                do {
-//
-//                } while (true);
-//            }
-//        }
-//        return index;
-//    }
+    public int indexOf(String data) {
+        if (getHead() == null) {
+            Printer.printErrorMessage("List is empty");
+            return -1;
+        } else {
+            int index = 0;
+            if (size() < index) {
+                Printer.printErrorMessage("Index out of bounds");
+                return -1;
+            } else {
+                Node current = getHead();
+                index = 0;
+                do {
+                    if (current.data == data) {
+                        return index;
+                    }
+                    index++;
+                    current = current.next;
+                } while (current != getHead());
+            }
+        }
+        Printer.printErrorMessage(data + " is not in the list.");
+        return -1;
+    }
 
     public void clear() {
         int fullSize = size();

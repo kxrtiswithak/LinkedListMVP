@@ -22,6 +22,24 @@ public class CircularLinkedList extends LinkedList {
     }
 
     @Override
+    public void add(int index, String data) {
+        Node newNode = new Node(data);
+            if (getHead() == null) {
+                setHead(newNode);
+                setTail(newNode);
+            } else {
+                Node current = getHead();
+                int count = 0;
+                while (count < index - 1) {
+                    current = current.next;
+                    count++;
+                }
+                newNode.next = current.next;
+                current.next = newNode;
+            }
+    }
+
+    @Override
     public void addFirst(String data) {
         Node newNode = new Node(data);
         if (this.getHead() == null) {

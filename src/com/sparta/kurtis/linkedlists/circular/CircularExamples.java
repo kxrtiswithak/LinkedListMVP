@@ -9,6 +9,8 @@ public class CircularExamples extends Example {
     @Override
     public void examples() {
         CircularLinkedList monopolyBoard = new CircularLinkedList();
+        CircularLinkedList monopolyBoard2 = new CircularLinkedList();
+
         String monopolySpace1 = "Go";
         String monopolySpace2 = "Old Kent Road";
         String monopolySpace3 = "King's Cross Station";
@@ -38,6 +40,7 @@ public class CircularExamples extends Example {
         monopolyBoard.add(monopolySpace13);
 
         Printer.printStringCircularLinkedList(monopolyBoard, 2);
+        Printer.printMessage("Size: " + monopolyBoard.size());
 
         Printer.printMessage("Removed: " + monopolyBoard.remove());
         Printer.printMessage("Removed: " + monopolyBoard.remove());
@@ -51,7 +54,7 @@ public class CircularExamples extends Example {
         Printer.printMessage("Removed: " + monopolyBoard.remove());
         Printer.printMessage("Removed: " + monopolyBoard.remove());
         Printer.printMessage("Removed: " + monopolyBoard.remove());
-//        Printer.printMessage("Removed: " + monopolyBoard.remove());
+        Printer.printMessage("Removed: " + monopolyBoard.remove());
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
     }
 }

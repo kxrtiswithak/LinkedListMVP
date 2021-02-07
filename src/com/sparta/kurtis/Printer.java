@@ -37,14 +37,18 @@ public class Printer {
         System.out.printf("%n================%n%n");
         Node head = list.getHead(), temp = head;
         int currentRotation = rotations;
-        do {
-            printMessage(temp.data);
-            temp = temp.next;
-            if (temp == head){
-                printMessage("");
-                currentRotation--;
-            }
-        } while(currentRotation > 0);
+        if (list.size() < 1) {
+            printErrorMessage("List is empty");
+        } else {
+            do {
+                printMessage(temp.data);
+                temp = temp.next;
+                if (temp == head) {
+                    printMessage("");
+                    currentRotation--;
+                }
+            } while (currentRotation > 0);
+        }
         System.out.printf("%n================%n");
     }
 

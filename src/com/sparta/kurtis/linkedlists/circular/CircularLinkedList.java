@@ -1,5 +1,6 @@
 package com.sparta.kurtis.linkedlists.circular;
 
+import com.sparta.kurtis.Printer;
 import com.sparta.kurtis.linkedlists.LinkedList;
 import com.sparta.kurtis.linkedlists.Node;
 
@@ -22,20 +23,42 @@ public class CircularLinkedList extends LinkedList {
 
     @Override
     public String remove() {
-        String removed;
-        if (getHead() == getTail()) {
-            removed = getHead().data;
-            setTail(null);
-            setHead(null);
+        String removed = null;
+        if (size() < 1) {
+            Printer.printErrorMessage("List is empty");
         } else {
-            Node current = getHead();
-            while (current.next != getTail()) {
-                current = current.next;
+            if (getHead() == getTail()) {
+                removed = getHead().data;
+                setTail(null);
+                setHead(null);
+            } else {
+                Node current = getHead();
+                while (current.next != getTail()) {
+                    current = current.next;
+                }
+                removed = current.next.data;
+                setTail(current);
+                getTail().next = getHead();
             }
-            removed = current.next.data;
-            setTail(current);
-            getTail().next = getHead();
         }
         return removed;
+    }
+
+    @Override
+    public int size() {
+        int count = 0;
+        Node current = getHead();
+        if (getHead() == null && getTail() == null) {
+            return count;
+//        } else if (getHead() == getTail()) {
+//            count = 1;
+        } else {
+            do {
+                count++;
+                current = current.next;
+            } while (current != getHead());
+        }
+
+        return count;
     }
 }

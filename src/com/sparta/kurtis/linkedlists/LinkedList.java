@@ -58,7 +58,7 @@ public abstract class LinkedList {
             head = newNode;
             tail = newNode;
         } else {
-            tail.next = newNode;
+            tail.setNext(newNode);
             tail = newNode;
         }
         return true;
@@ -80,11 +80,11 @@ public abstract class LinkedList {
         if (size() > index) {
             Node current = head;
             while (count < index - 1) {
-                current = current.next;
+                current = current.getNext();
                 count++;
             }
-            newNode.next = current.next;
-            current.next = newNode;
+            newNode.setNext(current.getNext());
+            current.setNext(newNode);
             tail = current;
         } else {
             Printer.printErrorMessage("index out of bounds");
@@ -105,7 +105,7 @@ public abstract class LinkedList {
         } else {
             Node temp = head;
             head = newNode;
-            head.next = temp;
+            head.setNext(temp);
         }
     }
 
@@ -129,12 +129,12 @@ public abstract class LinkedList {
      * @return the head of this list
      */
     public String remove() {
-        String removed = head.data;
+        String removed = head.getData();
         if (head == null) {
             Printer.printErrorMessage("list is empty");
         } else {
             if (size() > 0) {
-                head = head.next;
+                head = head.getNext();
             } else {
                 head = tail = null;
             }
@@ -161,14 +161,14 @@ public abstract class LinkedList {
             if (size() > 0) {
                 Node current = head;
                 while (count < index - 1) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
                 tail = current;
-                removed = current.next.data;
-                tail.next = current.next.next;
+                removed = current.getNext().getData();
+                tail.setNext(current.getNext().getNext());
             } else {
-                removed = tail.next.data;
+                removed = tail.getNext().getData();
                 head = tail = null;
             }
         }
@@ -196,16 +196,16 @@ public abstract class LinkedList {
         } else {
             if (size() > 0) {
                 Node current = head;
-                while (current.next != tail) {
-                    if (data.equals(current.data)) {
+                while (current.getNext() != tail) {
+                    if (data.equals(current.getData())) {
                         remove(count);
                         return true;
                     }
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
             } else {
-                if (data.equals(head.data)) {
+                if (data.equals(head.getData())) {
                     remove();
                     return true;
                 }
@@ -240,14 +240,14 @@ public abstract class LinkedList {
         } else {
             if (size() > 0) {
                 Node current = head;
-                while (current.next != tail) {
-                    current = current.next;
+                while (current.getNext() != tail) {
+                    current = current.getNext();
                 }
                 tail = current;
-                last = tail.next.data;
-                tail.next = null;
+                last = tail.getNext().getData();
+                tail.setNext(null);
             } else {
-                last = tail.next.data;
+                last = tail.getNext().getData();
                 head = tail = null;
             }
         }
@@ -273,12 +273,12 @@ public abstract class LinkedList {
             if (size() > index) {
                 Node current = head;
                 while (count < index) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
                 tail = current;
-                previous = tail.data;
-                tail.data = data;
+                previous = tail.getData();
+                tail.setData(data);
             } else {
                 Printer.printErrorMessage("index out of bounds");
                 return null;
@@ -303,10 +303,10 @@ public abstract class LinkedList {
             if (size() > index) {
                 Node current = head;
                 while (count < index) {
-                    current = current.next;
+                    current = current.getNext();
                     count++;
                 }
-                return current.data;
+                return current.getData();
             } else {
                 Printer.printErrorMessage("Index out of bounds");
                 return null;
@@ -326,7 +326,7 @@ public abstract class LinkedList {
 
         while (current != null) {
             count++;
-            current = current.next;
+            current = current.getNext();
         }
 
         return count;
@@ -351,8 +351,8 @@ public abstract class LinkedList {
         linkedListString.append("\n================\n\n");
         while (current != null) {
             linkedListString.append(String.format("%d: %s\n",
-                    count, current.data));
-            current = current.next;
+                    count, current.getData()));
+            current = current.getNext();
             count++;
         }
         linkedListString.append("\n================\n");
@@ -381,5 +381,25 @@ public abstract class LinkedList {
         }
 
         return linkedListArray;
+    }
+
+    public Node getFirst() {
+        if (this.head != null) {
+            return this.head;
+        }
+        return null;
+    }
+
+    public Node getLast() {
+        Node current;
+        if (this.head != null) {
+            current = this.head;
+
+            while (current.getNext() != null) {
+                current = current.getNext();
+            }
+            return current;
+        }
+        return null;
     }
 }

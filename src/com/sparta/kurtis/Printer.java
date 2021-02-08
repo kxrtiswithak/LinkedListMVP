@@ -44,12 +44,18 @@ public class Printer {
                 printMessage(temp.getData());
                 temp = temp.getNext();
                 if (temp == head) {
-                    printMessage("");
+                    if (currentRotation > 1) {
+                        Printer.printMessage("\n- Rotations left: " + (currentRotation - 1) + "\n");
+                    }
                     currentRotation--;
                 }
             } while (currentRotation > 0);
         }
         System.out.printf("%n================%n");
+    }
+
+    public static void printInt(int number) {
+        System.out.println(number);
     }
 
     public static void printErrorMessage(String message) {

@@ -24,33 +24,39 @@ public class CircularExamples extends Example {
         String monopolySpace13 = "Mayfair";
 
         //A
+        Printer.printMessage("A) Setting the board up...");
         monopolyBoard.add(monopolySpace3);
         monopolyBoard.addFirst(monopolySpace1);
         monopolyBoard.add(monopolySpace4);
         monopolyBoard.add(monopolySpace5);
         monopolyBoard.add(1, monopolySpace2);
+        Printer.printMessage("Going round the board twice...");
         Printer.printStringCircularLinkedList(monopolyBoard, 2);
 
         //B
-        monopolyBoard.set(2, "Waterloo Station");
-        monopolyBoard.get(2);
+        String monopolySpaceUpdate = "Waterloo Station";
+        Printer.printMessage("B) Changing station name to keep people on their toes...");
+        Printer.printMessage("From " + monopolyBoard.get(2) + " to " + monopolySpaceUpdate);
+        monopolyBoard.set(2, monopolySpaceUpdate);
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
 
         //C
-        monopolyBoard.removeLast();
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
 
         //D
         monopolyBoard.remove(monopolySpace5);
+        Printer.printMessage("They told us to try again this way, who are we dispute them?");
         monopolyBoard.remove(-1);
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
 
         //E
-        monopolyBoard.indexOf(monopolySpace1);
-        monopolyBoard.indexOf(monopolySpace12);
-        monopolyBoard.indexOf("hello");
+        Printer.printInt(monopolyBoard.indexOf(monopolySpace1));
+        Printer.printMessage("Index of" + monopolySpace12 + " is:");
+        Printer.printInt(monopolyBoard.indexOf(monopolySpace12));
+        Printer.printMessage("Index of 'hello' is:");
 
         //F
+        Printer.printMessage("\nE) board was destroyed in 'accidental' table flipping...");
         monopolyBoard.clear();
         Printer.printStringCircularLinkedList(monopolyBoard, 1);
     }
